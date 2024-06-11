@@ -34,8 +34,20 @@ jobs:
     - name: Package with PyInstaller
       run: pyinstaller --onefile --name CleanSweep main.py
 
+    - name: Prepare artifacts
+      run: |
+        mkdir artifacts
+        cp dist/CleanSweep.exe artifacts/
+        cp 清理配置.txt artifacts/
+        cp README.md artifacts/
+
+    - name: Create zip
+      run: |
+        cd artifacts
+        powershell Compress-Archive -Path * -DestinationPath ../CleanSweep.zip
+
     - name: Archive results
       uses: actions/upload-artifact@v3
       with:
-        name: exe-package
-        path: dist/CleanSweep.exe
+        name: win-x64
+        path: CleanSweep.zip

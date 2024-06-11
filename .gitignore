@@ -1,0 +1,7 @@
+Miniconda3/
+__pycache__/
+
+output
+dist
+build
+*.spec

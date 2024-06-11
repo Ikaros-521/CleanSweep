@@ -1,10 +1,5 @@
 import os
 import shutil
-import logging
-
-# 配置日志记录
-logging.basicConfig(filename='删除日志.txt', level=logging.INFO,
-                    format='%(asctime)s - %(levelname)s - %(message)s', encoding='utf-8')
 
 # 从txt文件中读取要删除的文件和文件夹路径
 def read_paths_from_file(file_path):
@@ -35,20 +30,16 @@ def get_path_description(path):
 def delete_file(file):
     try:
         os.remove(file)
-        logging.info(f"已删除文件: {file} - {get_path_description(file)}")
-        print(f"已删除文件: {file}")
+        print(f"已删除文件: {file} - {get_path_description(file)}")
     except Exception as e:
-        logging.error(f"删除文件失败: {file}。原因: {e}")
         print(f"删除文件失败: {file}。原因: {e}")
 
 # 删除目录
 def delete_directory(directory):
     try:
         shutil.rmtree(directory)
-        logging.info(f"已删除目录: {directory} - {get_path_description(directory)}")
-        print(f"已删除目录: {directory}")
+        print(f"已删除目录: {directory} - {get_path_description(directory)}")
     except Exception as e:
-        logging.error(f"删除目录失败: {directory}。原因: {e}")
         print(f"删除目录失败: {directory}。原因: {e}")
 
 # 清理指定的路径
@@ -68,10 +59,8 @@ def clean_paths(paths):
                 else:
                     print(f"未知类型的路径: {path}")
             else:
-                logging.info(f"跳过清理路径: {path}")
                 print(f"跳过清理路径: {path}")
         else:
-            logging.warning(f"路径不存在: {path}")
             print(f"路径不存在: {path}")
 
 # 清空回收站
@@ -86,16 +75,13 @@ def empty_recycle_bin():
             confirm = input(f"回收站中有 {item_count} 个项目。是否清空回收站？ (y/n): ")
             if confirm.lower() == 'y':
                 shell.NameSpace(10).Items().InvokeVerb("empty")
-                logging.info(f"已清空回收站中的 {item_count} 个项目。")
-                print(f"已删除回收站中的 {item_count} 个项目。")
+                print(f"已清空回收站中的 {item_count} 个项目。")
             else:
-                logging.info("跳过清空回收站。")
+                print("跳过清空回收站。")
                 print("回收站未清空。")
         else:
-            logging.info("回收站已为空。")
             print("回收站已为空。")
     except ImportError:
-        logging.error("未安装pywin32库，无法清空回收站。")
         print("未安装pywin32库，无法清空回收站。")
 
 # 执行清理
