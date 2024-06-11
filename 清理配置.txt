@@ -1,0 +1,7 @@
+C:\Windows\Temp
+C:\Users\%USERNAME%\AppData\Local\CrashDumps
+C:\Users\%USERNAME%\AppData\Local\Temp\*.tmp
+C:\Users\%USERNAME%\AppData\Local\Temp\*.log
+C:\Users\%USERNAME%\AppData\Local\Temp\*.bak
+C:\Users\%USERNAME%\AppData\Local\Temp\*.old
+C:\Users\%USERNAME%\AppData\Local\Temp\~*
