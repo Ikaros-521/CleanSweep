@@ -93,5 +93,7 @@ if __name__ == "__main__":
         paths_to_clean = read_paths_from_file(file_path)
         clean_paths(paths_to_clean)
         empty_recycle_bin()
+        input("清理完成，按任意键退出。")
     else:
         print("输入的文件路径无效。")
+        input("按任意键退出。")
