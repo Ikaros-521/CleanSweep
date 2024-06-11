@@ -1,4 +1,2 @@
 pywin32
 chardet
-shutil
-logging
